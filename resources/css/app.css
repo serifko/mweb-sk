@@ -1,0 +1,25 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+@layer base{
+
+    body{
+        @apply bg-gray-200
+    }
+    h1{
+        @apply text-gray-800  font-semibold pb-4 text-4xl underline
+    }
+    h2{
+        @apply text-gray-800  font-semibold pb-4 text-3xl 
+    }    
+    h3{
+        @apply text-gray-800  font-semibold pb-4 text-3xl 
+    }
+
+    .link{
+        @apply underline cursor-pointer hover:no-underline hover:text-gray-700
+    }
+
+}
