@@ -21,9 +21,6 @@ use App\Http\Controllers\PostController;
 
 Route::get('/', [HomeController::class, 'index'])->name('/');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';
 
@@ -31,6 +28,8 @@ require __DIR__.'/auth.php';
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/getFreshNews', [HomeController::class, 'getFreshNews'])->name('getFreshNews');
 
 
 Route::get('/clanky', [PostController::class, 'index'])->name('posts');
@@ -41,3 +40,4 @@ Route::get('/{page}', function($page){
                 'page' => \TCG\Voyager\Models\Page::where('slug', $page)->first()
                 ]);
         })->name('page.show');
+

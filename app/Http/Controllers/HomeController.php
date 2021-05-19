@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Post;
+use App\Models\FreshNew;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,13 @@ class HomeController extends Controller
         return Inertia::render('Home/Index', [
             'posts' => $posts,
             'home_welcome' => $home_welcome
+        ]);
+    }
+
+    public function getFreshNews(){
+        $freshNews = FreshNew::orderBy('created_at', 'DESC')->limit(4)->get();
+        return response()->json([
+            'fresh_news' => $freshNews
         ]);
     }
 }

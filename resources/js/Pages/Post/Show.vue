@@ -15,6 +15,15 @@
         </article>
 
     </app-layout>
+
+    <teleport to="title">
+        {{ ' | ' + post.title }}
+    </teleport>
+    <teleport to="head">
+        asd
+    </teleport>
+    
+
 </template>
 
 
@@ -32,6 +41,7 @@ export default {
         AppLayout
     },
     mounted(){
+        console.log(this.post)
     }
 }
 </script>

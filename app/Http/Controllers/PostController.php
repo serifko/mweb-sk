@@ -16,7 +16,6 @@ class PostController extends Controller
         ]);
     }
 
-
     public function show($post){
         $post_data = Post::where('slug', $post)->with('user')->first();
         return Inertia::render('Post/Show', [

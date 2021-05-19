@@ -9,6 +9,10 @@
             <p>Naposedy upravené {{ moment(page.updated_at).format('D.M.Y o HH:mm') }} hod.</p>
         </div>
     </app-layout>
+    <teleport to="title">
+        {{ ' | ' + page.title }}
+    </teleport>
+
 </template>
 
 

@@ -6,7 +6,7 @@
         <div class="py-4">
           <span class="mb-auto mt-auto text-4xl text-gray-800 font-serif font-semibold italic">mWeb.sk</span>
           <br>
-          <span class="mb-auto mt-auto text-2xl text-gray-600  font-serif font-semibold italic pl-3">kdo to nevie, ten to učí...</span>
+          <span class="mb-auto mt-auto text-2xl text-gray-600  font-serif font-semibold italic pl-3">kdo to nevie, ten to o tom píše...</span>
         </div>
       </header>
       <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-gray-700">
@@ -54,10 +54,13 @@
         </div>
       </nav>
       <section class="flex h-screen bg-white" >
-        <aside class="w-64 w-max-64 pl-2 pt-2 pr-2 m-0 bg-gray-700 border-t-2 border-gray-500">
-        <fieldset class="border-2 text-center p-2">
+        <aside class="w-64 w-max-64 pl-2 pt-2 pr-2 m-0 bg-gray-700 border-t-2 border-gray-500 text-white">
+        <fieldset class="border-2 p-2">
             <legend><h3 class="text-gray-300">Novinky: </h3></legend>
-            <div class="fb-page" data-href="https://www.facebook.com/ufospacince/" data-tabs="timeline"  data-height="500" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/tjspacince/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/tjspacince/">TJ Družstevník Špačince</a></blockquote></div>
+            <div v-for="freshNew in freshNews" :key="freshNew.id" class="mb-3 border-b-2 ">
+              <span v-if="freshNew.title != null" class="block font-bold">{{ freshNew.title }}</span>
+              <span class="italic">{{  moment(freshNew.created_at).format('D.M.Y o HH:mm') }}: </span><span>{{freshNew.text}}</span>
+            </div>
         </fieldset>
         </aside>
 
@@ -71,6 +74,28 @@
 </div>
 
 </template>
+
 <script>
-    
+import moment from 'moment';
+
+export default {
+  data(){
+    return {
+      freshNews: null,
+      moment: moment
+    }
+  },
+  mounted(){
+    axios.get(route('getFreshNews'))
+                  .then((res) => {
+                    this.freshNews = res.data.fresh_news
+                    console.log(this.freshNews)
+                  })
+  },
+  computed: {
+    setFreshNews(){
+      return this.freshNews
+    }
+  }
+}
 </script>
