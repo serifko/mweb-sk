@@ -2,6 +2,7 @@
   <div>
     <div class="min-h-screen max-w-7xl mx-auto">
       <header class="flex align-middle bg-gray-300">
+
         <img src="" class="h-24 float-left pl-8 pr-12" />
         <div class="py-4">
           <span class="mb-auto mt-auto text-4xl text-gray-800 font-serif font-semibold italic">mWeb.sk</span>
@@ -54,22 +55,22 @@
         </div>
       </nav>
       <section class="flex h-screen bg-white" >
-        <aside class="w-64 w-max-64 pl-2 pt-2 pr-2 m-0 bg-gray-700 border-t-2 border-gray-500 text-white">
+        <aside class="w-1/5 w-max-64 pl-2 pt-2 pr-2 m-0 bg-gray-700 border-t-2 border-gray-500 text-white">
         <fieldset class="border-2 p-2">
-            <legend><h3 class="text-gray-300">Novinky: </h3></legend>
+            <legend class="text-gray-300 text-2xl font-semibold p-0">Novinky: </legend>
             <div v-for="freshNew in freshNews" :key="freshNew.id" class="mb-3 border-b-2 ">
               <span v-if="freshNew.title != null" class="block font-bold">{{ freshNew.title }}</span>
               <span class="italic">{{  moment(freshNew.created_at).format('D.M.Y o HH:mm') }}: </span><span>{{freshNew.text}}</span>
             </div>
         </fieldset>
         </aside>
-
-        <main class="w-full pt-5 pl-5 pr-5 pb-40 bg-gray-100">
+        <main class="w-4/5 pt-5 pl-5 pr-5 pb-40 bg-gray-100">
           <slot></slot>
         </main>
-
       </section>
-
+      <footer class="w-full text-center  text-md my-4 pb-10">
+        ©<a href="https://github.com/serifko" target="_blank" class="ml-1 text-gray-700 hover:underline ">serifko</a>, 2021
+      </footer>
     </div>
 </div>
 
