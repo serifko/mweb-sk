@@ -19,8 +19,17 @@
         @routes
         <script src="{{ mix('js/app.js') }}" defer></script>
         <script src="https://kit.fontawesome.com/e3eff3ea70.js" crossorigin="anonymous"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MMK8ERZTV7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '{{ env("GOOGLE_IDENT_MESUR", "-") }}');
+        </script>
     </head>
     <body class="font-sans antialiased">
+        @include('cookie-consent::index')
         @inertia
     </body>
     

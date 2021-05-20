@@ -22,4 +22,14 @@
         @apply underline cursor-pointer hover:no-underline hover:text-gray-700
     }
 
+    .cookie-consent{
+        @apply w-full bg-gray-900 py-2 px-10 text-center
+    }
+    .cookie-consent__message{
+        @apply  text-lg text-white
+    }
+    .cookie-consent__agree{
+        @apply bg-green-700 text-white border-2 rounded-md py-0.5 px-2 mx-5
+    }
+    
 }
