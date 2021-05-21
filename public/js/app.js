@@ -16883,7 +16883,7 @@ __webpack_require__.r(__webpack_exports__);
 
     axios.get(route('getFreshNews')).then(function (res) {
       _this.freshNews = res.data.fresh_news;
-    });
+    }), this.moment.lang('sk');
   },
   computed: {
     setFreshNews: function setFreshNews() {
@@ -17386,7 +17386,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log(this.page);
+    this.moment.lang('sk');
   }
 });
 
@@ -17425,7 +17425,7 @@ __webpack_require__.r(__webpack_exports__);
     Pagination: _Components_Pagination__WEBPACK_IMPORTED_MODULE_0__.default
   },
   mounted: function mounted() {
-    console.log(!!this.searchCategory);
+    this.moment.lang('sk');
   },
   methods: {
     getImage: function getImage(post_l) {
@@ -17484,6 +17484,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log(this.post);
+    this.moment.lang('sk');
   }
 });
 
@@ -19263,7 +19264,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           innerHTML: post.body
         }, null, 8
         /* PROPS */
-        , ["innerHTML"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_6, "Napísal " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.user.name) + " dňa " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.moment(post.created_at).fromNow()) + ".", 1
+        , ["innerHTML"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_6, "Napísal " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.user.name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.moment(post.created_at).fromNow()) + ".", 1
         /* TEXT */
         ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.category.treeCategory.length == 1 ? 'Kategória' : 'Kategórie') + ": ", 1
         /* TEXT */
@@ -19385,7 +19386,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         innerHTML: $props.post.body
       }, null, 8
       /* PROPS */
-      , ["innerHTML"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, "Uverejnil " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.name) + " dňa " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.moment($props.post.created_at).fromNow()) + ".", 1
+      , ["innerHTML"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, "Uverejnil " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.name) + " " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.moment($props.post.created_at).fromNow()) + ".", 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
         href: _ctx.route('posts', {
@@ -19697,7 +19698,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 /* harmony import */ var _inertiajs_progress__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/progress */ "./node_modules/@inertiajs/progress/dist/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // Import modules...
+
 
 
 

@@ -12,7 +12,7 @@
               <p v-html="post.body"></p>
             </div>
             <footer class="mt-5">
-              <p class="italic text-right">Napísal {{ post.user.name }} dňa {{ moment(post.created_at).fromNow() }}.</p>
+              <p class="italic text-right">Napísal {{ post.user.name }} {{ moment(post.created_at).fromNow() }}.</p>
               <p>{{ post.category.treeCategory.length == 1 ? 'Kategória' : 'Kategórie' }}: 
                 <span v-for="(category, index) in post.category.treeCategory" :key="category.id">
                     <a :href="route('posts', {category_slug: category.slug})" class="hover:underline">{{ category.name }}</a>
@@ -50,7 +50,7 @@ export default {
         Pagination
       },
       mounted(){
-        console.log(!!this.searchCategory)
+         this.moment.lang('sk');
       },
       methods: {
         getImage(post_l){

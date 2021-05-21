@@ -89,7 +89,8 @@ export default {
     axios.get(route('getFreshNews'))
                   .then((res) => {
                     this.freshNews = res.data.fresh_news
-                  })
+                  }),
+    this.moment.lang('sk');
   },
   computed: {
     setFreshNews(){

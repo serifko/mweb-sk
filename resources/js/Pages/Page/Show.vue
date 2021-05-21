@@ -28,7 +28,8 @@ export default {
         }
     },
     mounted(){
-        console.log(this.page)
+        this.moment.lang('sk');
+
     }
 }
 </script>
