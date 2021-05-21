@@ -18,7 +18,8 @@ class PostController extends Controller
             $posts = Post::where('status', 'PUBLISHED')->orderBy('created_at', 'DESC')->with('user', 'category')->paginate(1);
         }
         return Inertia::render('Post/Index', [
-            'posts' => $posts
+            'posts' => $posts,
+            'searchCategory' => $category_slug == null ? null : $category
         ]);
     }
 

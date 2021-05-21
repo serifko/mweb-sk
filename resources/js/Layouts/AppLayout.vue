@@ -54,7 +54,7 @@
           </div>
         </div>
       </nav>
-      <section class="flex flex-col lg:flex-row h-screen bg-white" >
+      <section class="flex flex-col md:flex-row h-screen bg-white" >
         <aside class="w-1/5 w-max-64 pl-2 pt-2 pr-2 m-0 bg-gray-700 border-t-2 border-gray-500 text-white">
         <fieldset class="border-2 p-2">
             <legend class="text-gray-300 text-2xl font-semibold p-0">Novinky: </legend>
@@ -89,7 +89,6 @@ export default {
     axios.get(route('getFreshNews'))
                   .then((res) => {
                     this.freshNews = res.data.fresh_news
-                    console.log(this.freshNews)
                   })
   },
   computed: {

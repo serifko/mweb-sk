@@ -1,7 +1,7 @@
 <template>
   <app-layout>
       <div class="container">
-        <h1 class="h1">Články</h1>
+        <h1 class="h1">Články{{ searchCategory ? ': '+searchCategory.name : '' }}</h1>
         <div v-if="posts && posts.data.length>0">
           <article v-for="post in posts.data" :key="post.id" class="flow-root">
             <header>
@@ -13,9 +13,9 @@
             </div>
             <footer class="mt-5">
               <p class="italic text-right">Napísal {{ post.user.name }} dňa {{ moment(post.created_at).fromNow() }}.</p>
-              <p class="italic">{{ post.category.treeCategory.length == 1 ? 'Kategória' : 'Kategórie' }}: 
+              <p>{{ post.category.treeCategory.length == 1 ? 'Kategória' : 'Kategórie' }}: 
                 <span v-for="(category, index) in post.category.treeCategory" :key="category.id">
-                    <a :href="route('posts', {category_slug: category.slug})">{{ category.name }}</a>
+                    <a :href="route('posts', {category_slug: category.slug})" class="hover:underline">{{ category.name }}</a>
                     <span v-if="index+1 != post.category.treeCategory.length" class="mx-1">-></span>
                 </span>
                 </p>
@@ -27,7 +27,8 @@
       </div>
   </app-layout>
   <teleport to="title">
-      {{ ' | články' }}
+      <template v-if="!!searchCategory">{{ ' | články: '+searchCategory.name }}</template>
+      <template v-else>{{ ' | články'}}</template>
   </teleport>
 </template>
   
@@ -38,7 +39,7 @@ import moment from 'moment'
 export default {
     props: {
       posts: Object,
-    },
+      searchCategory: Object,    },
     data() {
       return {
         moment: moment,
@@ -46,9 +47,10 @@ export default {
     },
     components: {
         AppLayout,
-       Pagination
+        Pagination
       },
       mounted(){
+        console.log(!!this.searchCategory)
       },
       methods: {
         getImage(post_l){
