@@ -32,7 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
 Route::get('/getFreshNews', [HomeController::class, 'getFreshNews'])->name('getFreshNews');
 
 
-Route::get('/clanky', [PostController::class, 'index'])->name('posts');
+Route::get('/clanky/{category_slug?}', [PostController::class, 'index'])->name('posts');
 Route::get('/clanok/{post}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('/{page}', function($page){

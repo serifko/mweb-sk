@@ -11,6 +11,8 @@
             <main v-html="post.body"></main>
             <footer>
                 <p class="italic text-right text-gray-900 text-md">Uverejnil {{ post.user.name }} dňa {{ moment(post.created_at).fromNow() }}.</p>
+                <p class="italic">Kategória: <a :href="route('posts', {category_slug: post.category.slug})">{{ post.category.name }}</a></p>
+
             </footer>
         </article>
 

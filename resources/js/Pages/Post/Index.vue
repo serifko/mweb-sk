@@ -12,7 +12,13 @@
               <p v-html="post.body"></p>
             </div>
             <footer class="mt-5">
-              <p class="italic">Napísal {{ post.user.name }} dňa {{ moment(post.created_at).fromNow() }}.</p>
+              <p class="italic text-right">Napísal {{ post.user.name }} dňa {{ moment(post.created_at).fromNow() }}.</p>
+              <p class="italic">{{ post.category.treeCategory.length == 1 ? 'Kategória' : 'Kategórie' }}: 
+                <span v-for="(category, index) in post.category.treeCategory" :key="category.id">
+                    <a :href="route('posts', {category_slug: category.slug})">{{ category.name }}</a>
+                    <span v-if="index+1 != post.category.treeCategory.length" class="mx-1">-></span>
+                </span>
+                </p>
             </footer>
           </article>
             <pagination class="mt-6" :links="posts.links" />

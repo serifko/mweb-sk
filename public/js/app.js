@@ -17963,7 +17963,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(
 );
 
 var _hoisted_12 = {
-  "class": "flex h-screen bg-white"
+  "class": "flex flex-col lg:flex-row h-screen bg-white"
 };
 var _hoisted_13 = {
   "class": "w-1/5 w-max-64 pl-2 pt-2 pr-2 m-0 bg-gray-700 border-t-2 border-gray-500 text-white"
@@ -19232,10 +19232,17 @@ var _hoisted_5 = {
   "class": "mt-5"
 };
 var _hoisted_6 = {
+  "class": "italic text-right"
+};
+var _hoisted_7 = {
   "class": "italic"
 };
+var _hoisted_8 = {
+  key: 0,
+  "class": "mx-1"
+};
 
-var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)( /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(' | články'));
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)( /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(' | články'));
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_pagination = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pagination");
@@ -19261,7 +19268,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         /* PROPS */
         , ["innerHTML"])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_6, "Napísal " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.user.name) + " dňa " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.moment(post.created_at).fromNow()) + ".", 1
         /* TEXT */
-        )])]);
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)((0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(post.category.treeCategory.length == 1 ? 'Kategória' : 'Kategórie') + ": ", 1
+        /* TEXT */
+        ), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(post.category.treeCategory, function (category, index) {
+          return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", {
+            key: category.id
+          }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+            href: _ctx.route('posts', {
+              category_slug: category.slug
+            })
+          }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.name), 9
+          /* TEXT, PROPS */
+          , ["href"]), index + 1 != post.category.treeCategory.length ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)("span", _hoisted_8, "->")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
+        }), 128
+        /* KEYED_FRAGMENT */
+        ))])])]);
       }), 128
       /* KEYED_FRAGMENT */
       )), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pagination, {
@@ -19276,7 +19297,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   }), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
     to: "title"
-  }, [_hoisted_7]))], 64
+  }, [_hoisted_9]))], 64
   /* STABLE_FRAGMENT */
   );
 }
@@ -19330,8 +19351,13 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("
 var _hoisted_3 = {
   "class": "italic text-right text-gray-900 text-md"
 };
+var _hoisted_4 = {
+  "class": "italic"
+};
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" asd ");
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("Kategória: ");
+
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" asd ");
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_app_layout = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("app-layout");
@@ -19353,7 +19379,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       /* PROPS */
       , ["innerHTML"]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("footer", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_3, "Uverejnil " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.user.name) + " dňa " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.moment($props.post.created_at).fromNow()) + ".", 1
       /* TEXT */
-      )])])];
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("p", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)("a", {
+        href: _ctx.route('posts', {
+          category_slug: $props.post.category.slug
+        })
+      }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.post.category.name), 9
+      /* TEXT, PROPS */
+      , ["href"])])])])];
     }),
     _: 1
     /* STABLE */
@@ -19364,7 +19396,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   )])), ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Teleport, {
     to: "head"
-  }, [_hoisted_4]))], 64
+  }, [_hoisted_6]))], 64
   /* STABLE_FRAGMENT */
   );
 }
